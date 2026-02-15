@@ -8,6 +8,8 @@ import Badge from "@/components/ui/Badge";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { SITE_URL, SITE_NAME } from "@/lib/constants";
+import AdUnit from "@/components/ads/AdUnit";
 import type { Metadata } from "next";
 
 type Props = {
@@ -26,14 +28,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     video?.description?.slice(0, 160) ??
     "";
 
+  const esPath = `/es/receta/${videoId}`;
+  const enPath = `/en/recipe/${videoId}`;
+  const currentPath = locale === "es" ? esPath : enPath;
+
   return {
     title,
     description,
     openGraph: {
       title,
       description,
-      images: video?.thumbnailUrl ? [video.thumbnailUrl] : [],
+      images: video?.thumbnailUrl
+        ? [{ url: video.thumbnailUrl, width: 480, height: 360, alt: title }]
+        : [],
       type: "article",
+      siteName: SITE_NAME,
+      locale: locale === "es" ? "es_MX" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: video?.thumbnailUrl ? [video.thumbnailUrl] : [],
+    },
+    alternates: {
+      canonical: `${SITE_URL}${currentPath}`,
+      languages: {
+        es: `${SITE_URL}${esPath}`,
+        en: `${SITE_URL}${enPath}`,
+      },
     },
   };
 }
@@ -78,13 +101,16 @@ export default async function RecipePage({ params }: Props) {
         author: {
           "@type": "Person",
           name: "Los Sabores de Mi Tierra",
+          url: "https://www.youtube.com/@lossaboresdemitierra8378",
         },
+        datePublished: video.publishedAt,
         prepTime: `PT${recipe.prepTime}M`,
         cookTime: `PT${recipe.cookTime}M`,
         totalTime: `PT${recipe.prepTime + recipe.cookTime}M`,
-        recipeYield: `${recipe.servings}`,
+        recipeYield: `${recipe.servings} porciones`,
         recipeCategory: recipe.category,
         recipeCuisine: "Latin American",
+        keywords: recipe.tags?.join(", ") ?? recipe.category,
         recipeIngredient: localeData?.ingredients.flatMap((g) => g.items) ?? [],
         recipeInstructions:
           localeData?.steps.map((step, i) => ({
@@ -95,13 +121,41 @@ export default async function RecipePage({ params }: Props) {
         video: {
           "@type": "VideoObject",
           name: video.title,
-          description: video.description,
+          description: video.description?.slice(0, 200),
           thumbnailUrl: video.thumbnailUrl,
           uploadDate: video.publishedAt,
+          contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
           embedUrl: `https://www.youtube.com/embed/${videoId}`,
         },
       }
     : null;
+
+  // BreadcrumbList JSON-LD
+  const recipesLabel = locale === "es" ? "Recetas" : "Recipes";
+  const recipesPath = locale === "es" ? "/es/recetas" : "/en/recipes";
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: locale === "es" ? "Inicio" : "Home",
+        item: `${SITE_URL}/${locale}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: recipesLabel,
+        item: `${SITE_URL}${recipesPath}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+      },
+    ],
+  };
 
   return (
     <>
@@ -111,6 +165,10 @@ export default async function RecipePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
 
       <article className="py-8 md:py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,12 +205,30 @@ export default async function RecipePage({ params }: Props) {
             </div>
           </ScrollReveal>
 
+          {/* Ad between video and recipe */}
+          <div className="my-6 no-print">
+            <AdUnit
+              slot={process.env.NEXT_PUBLIC_AD_SLOT_ARTICLE || ""}
+              format="auto"
+              className="rounded-xl"
+            />
+          </div>
+
           {/* Recipe details */}
           {recipe && (
             <ScrollReveal delay={0.2}>
               <RecipeDetails recipe={recipe} locale={locale} />
             </ScrollReveal>
           )}
+
+          {/* Ad after recipe */}
+          <div className="mt-10 no-print">
+            <AdUnit
+              slot={process.env.NEXT_PUBLIC_AD_SLOT_BANNER || ""}
+              format="auto"
+              className="rounded-xl"
+            />
+          </div>
         </div>
       </article>
     </>

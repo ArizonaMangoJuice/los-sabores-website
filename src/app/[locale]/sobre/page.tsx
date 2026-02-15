@@ -3,10 +3,13 @@ import { getTranslations } from "next-intl/server";
 import { getChannelInfo } from "@/lib/youtube";
 import { Youtube, Users, Video } from "lucide-react";
 import { formatViewCount } from "@/lib/utils";
-import { SOCIAL_LINKS, SITE_NAME } from "@/lib/constants";
+import { SOCIAL_LINKS, SITE_NAME, SITE_URL } from "@/lib/constants";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Image from "next/image";
 import type { Metadata } from "next";
+
+const CHANNEL_LOGO =
+  "https://yt3.ggpht.com/ytc/AIdro_mmlKfFRPNU40tFbHFsp4DhLiI2UZNQCb19f2lf2BYQZQY=s800-c-k-c0x00ffffff-no-rj";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -15,9 +18,30 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "About" });
+
+  const title = `${t("title")} | ${SITE_NAME}`;
+  const description = t("description");
+  const esPath = "/es/sobre";
+  const enPath = "/en/about";
+  const currentPath = locale === "es" ? esPath : enPath;
+
   return {
-    title: `${t("title")} | ${SITE_NAME}`,
-    description: t("description"),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      siteName: SITE_NAME,
+      locale: locale === "es" ? "es_MX" : "en_US",
+    },
+    alternates: {
+      canonical: `${SITE_URL}${currentPath}`,
+      languages: {
+        es: `${SITE_URL}${esPath}`,
+        en: `${SITE_URL}${enPath}`,
+      },
+    },
   };
 }
 
@@ -34,8 +58,56 @@ export default async function AboutPage({ params }: Props) {
     console.error("Failed to fetch channel info:", error);
   }
 
+  // Organization JSON-LD
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: CHANNEL_LOGO,
+    description:
+      locale === "es"
+        ? "Canal de cocina dedicado a compartir recetas tradicionales latinoamericanas"
+        : "Cooking channel dedicated to sharing traditional Latin American recipes",
+    sameAs: [
+      "https://www.youtube.com/@lossaboresdemitierra8378",
+    ],
+    founder: {
+      "@type": "Person",
+      name: "Los Sabores de Mi Tierra",
+    },
+  };
+
+  // BreadcrumbList JSON-LD
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: locale === "es" ? "Inicio" : "Home",
+        item: `${SITE_URL}/${locale}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: locale === "es" ? "Sobre Nosotros" : "About Us",
+      },
+    ],
+  };
+
   return (
-    <div className="py-12 md:py-20">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <div className="py-12 md:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-12">
@@ -112,5 +184,6 @@ export default async function AboutPage({ params }: Props) {
         </ScrollReveal>
       </div>
     </div>
+    </>
   );
 }

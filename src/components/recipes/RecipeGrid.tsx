@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import RecipeCard from "./RecipeCard";
+import InFeedAd from "@/components/ads/InFeedAd";
 import { Search } from "lucide-react";
 import { VideoDetails, Recipe } from "@/types";
 import { CATEGORIES } from "@/lib/constants";
@@ -125,29 +126,33 @@ export default function RecipeGrid({ videos, recipes }: RecipeGridProps) {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredVideos.map((video) => {
+          {filteredVideos.map((video, index) => {
             const recipe = recipeMap.get(video.id);
             return (
-              <RecipeCard
-                key={video.id}
-                videoId={video.id}
-                thumbnailUrl={video.thumbnailUrl}
-                title={
-                  recipe
-                    ? locale === "es"
-                      ? recipe.es.title
-                      : recipe.en.title
-                    : video.title
-                }
-                category={recipe?.category}
-                categoryLabel={recipe ? tCat(recipe.category) : undefined}
-                duration={video.duration}
-                viewCount={video.viewCount}
-                hasRecipe={!!recipe}
-                prepTime={recipe?.prepTime}
-                cookTime={recipe?.cookTime}
-                difficulty={recipe?.difficulty}
-              />
+              <React.Fragment key={video.id}>
+                {index > 0 && index % 8 === 0 && (
+                  <InFeedAd className="sm:col-span-2 lg:col-span-3 xl:col-span-4" />
+                )}
+                <RecipeCard
+                  videoId={video.id}
+                  thumbnailUrl={video.thumbnailUrl}
+                  title={
+                    recipe
+                      ? locale === "es"
+                        ? recipe.es.title
+                        : recipe.en.title
+                      : video.title
+                  }
+                  category={recipe?.category}
+                  categoryLabel={recipe ? tCat(recipe.category) : undefined}
+                  duration={video.duration}
+                  viewCount={video.viewCount}
+                  hasRecipe={!!recipe}
+                  prepTime={recipe?.prepTime}
+                  cookTime={recipe?.cookTime}
+                  difficulty={recipe?.difficulty}
+                />
+              </React.Fragment>
             );
           })}
         </div>
