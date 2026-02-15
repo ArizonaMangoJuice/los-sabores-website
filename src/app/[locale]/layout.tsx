@@ -111,6 +111,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
       <head>
+        <meta name="google-site-verification" content="t9B6rpmto30cXBg2-ysVL8smU02Y9RCrPq9O_b9Fdrk" />
         {process.env.NEXT_PUBLIC_ADSENSE_ID && (
           <script
             async
