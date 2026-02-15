@@ -1,0 +1,95 @@
+{
+  "videoId": "Sz4AE9r1vjw",
+  "slug": "como-preparar-arroz-con-leche",
+  "category": "postres",
+  "tags": [
+    "facil",
+    "rapido",
+    "casero"
+  ],
+  "featured": false,
+  "difficulty": "medium",
+  "prepTime": 10,
+  "cookTime": 10,
+  "servings": 6,
+  "es": {
+    "title": "Como Preparar Arroz Con Leche",
+    "description": "Hala mafia, saludos para cada uno de ustedes. Les traigo una receta más sencilla de preparar que utiliza muy pocos ingredientes económicos. Además es deliciosa, se trata de arroz con leche es una receta fácil de preparar. Te invito a que la prepares. Puedes hacer feliz a tu familia con este postre casero también puedes venderlo se vende mucho. Te dejo los ingredientes y cómo prepararlo.",
+    "ingredients": [
+      {
+        "group": null,
+        "items": [
+          "1-litro de agua",
+          "1-kilo de arroz",
+          "3-bastocitos de canela",
+          "1-olla grande",
+          "Pon estos ingredientes todos juntos a remojar por 10 a 15 minutos. Pasando el tiempo, pon la olla a fuego alto. Cuando rompa el hervor baja a fuego medio. Tapado deja sancochar por 10 minutos.",
+          "Cuando el arroz ya secó el agua, necesitamos la leche son 4 leches diferentes ."
+        ]
+      },
+      {
+        "group": "Tipo de leches",
+        "items": [
+          "Medio litro de leche regular",
+          "1-lata de leche evaporada",
+          "1-lata de leche carnation",
+          "1-lata de leche condensada",
+          "Marca nestle",
+          "4 a 5 hojas de laurel",
+          "Azúcar al gusto",
+          "1-pizca de sal"
+        ]
+      }
+    ],
+    "steps": [
+      "Siguiente paso agrega las leches, la azúcar, la pizca de sal y las hojas de laurel de 4 a 5 hojas deja cocinar hasta que rompa el hervor a fuego medio.",
+      "Ya rompiendo el hervor solo deja 5 minutos, más apaga el fuego y deja enfriar bien.",
+      "Ya frío el arroz rellena los vasitos y agrega canela en polvo.",
+      "Tapa con un plástico con una liga y una cuchara desechable.",
+      "Llevar los vasos al refrigerador, puede durar hasta una semana el arroz y no se hace malo."
+    ],
+    "tips": [
+      "De preferencia comerlo frío ."
+    ]
+  },
+  "en": {
+    "title": "How to prepare rice pudding",
+    "description": "Hala mafia, saludos para cada uno de ustedes. Les traigo una receta más sencilla de preparar que utiliza muy pocos ingredientes económicos. Además es deliciosa, se trata de arroz con leche es una receta fácil de preparar. Te invito a que la prepares. Puedes hacer feliz a tu familia con este postre casero también puedes venderlo se vende mucho. Te dejo los ingredientes y cómo prepararlo.",
+    "ingredients": [
+      {
+        "group": null,
+        "items": [
+          "1-litro de agua",
+          "1-kilo de arroz",
+          "3-bastocitos de canela",
+          "1-olla grande",
+          "Pon estos ingredientes todos juntos a remojar por 10 a 15 minutos. Pasando el tiempo, pon la olla a fuego alto. Cuando rompa el hervor baja a fuego medio. Tapado deja sancochar por 10 minutos.",
+          "Cuando el arroz ya secó el agua, necesitamos la leche son 4 leches diferentes ."
+        ]
+      },
+      {
+        "group": "Tipo de leches",
+        "items": [
+          "Medio litro de leche regular",
+          "1-lata de leche evaporada",
+          "1-lata de leche carnation",
+          "1-lata de leche condensada",
+          "Marca nestle",
+          "4 a 5 hojas de laurel",
+          "Azúcar al gusto",
+          "1-pizca de sal"
+        ]
+      }
+    ],
+    "steps": [
+      "Siguiente paso agrega las leches, la azúcar, la pizca de sal y las hojas de laurel de 4 a 5 hojas deja cocinar hasta que rompa el hervor a fuego medio.",
+      "Ya rompiendo el hervor solo deja 5 minutos, más apaga el fuego y deja enfriar bien.",
+      "Ya frío el arroz rellena los vasitos y agrega canela en polvo.",
+      "Tapa con un plástico con una liga y una cuchara desechable.",
+      "Llevar los vasos al refrigerador, puede durar hasta una semana el arroz y no se hace malo."
+    ],
+    "tips": [
+      "De preferencia comerlo frío ."
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "videoId": "7HECT8c2Wtw",
+  "slug": "tacos-de-carne-molida-de-res-en-ojas-de-lechuga",
+  "category": "antojitos",
+  "tags": [
+    "picante",
+    "rapido"
+  ],
+  "featured": false,
+  "difficulty": "hard",
+  "prepTime": 10,
+  "cookTime": 10,
+  "servings": 6,
+  "es": {
+    "title": "Tacos De Carne Molida De Res En Ojas De Lechuga",
+    "description": "Hola familia, saludos para cada uno de ustedes. Hoy les comparto una receta deliciosa y muy rápida de preparar con muy pocos ingredientes y sobre todo saludable. Te invito a que la prepares. Son tacos de carne molida de res en hojas de lechuga.",
+    "ingredients": [
+      {
+        "group": null,
+        "items": [
+          "1-kilo de carne molida de res",
+          "Hojas de lechuga",
+          "Tomate picado en cubitos",
+          "Cilantro en rama",
+          "Chile de árbol fresco",
+          "Aguacate en cubitos",
+          "Repollo morado picado",
+          "1-paquetito de sazonador goya",
+          "2-onzas de agua",
+          "1-pizca de sal de cebolla",
+          "2-cd. De aceite vegetal",
+          "1-pizca de sal de ajo",
+          "1-pizca de pimienta blanca",
+          "1-pisca de orégano seco",
+          "Media cd. De comino molido",
+          "1-pizca de pimiento morrón en polvo"
+        ]
+      }
+    ],
+    "steps": [
+      "En una sartén previamente caliente incorporamos el aceite y la carne poco a poco.",
+      "También las especias como la sal de cebolla, el polvo de chile morrón, la pimienta blanca, el orégano, la sal, y el sazonador goya.",
+      "Revuelve bien y tapamos.",
+      "Lo dejamos cocinar 3 minutos, pasado ese tiempo incorpora 2 onzas de agua.",
+      "Tapamos y dejamos cocinar por 10 minutos o hasta seque bien el agua y ya está listo para preparar los tacos ."
+    ],
+    "tips": [
+      "Que la carne esté bien caliente"
+    ]
+  },
+  "en": {
+    "title": "Ground Beef Tacos on Lettuce Leaves",
+    "description": "Hola familia, saludos para cada uno de ustedes. Hoy les comparto una receta deliciosa y muy rápida de preparar con muy pocos ingredientes y sobre todo saludable. Te invito a que la prepares. Son tacos de carne molida de res en hojas de lechuga.",
+    "ingredients": [
+      {
+        "group": null,
+        "items": [
+          "1-kilo de carne molida de res",
+          "Hojas de lechuga",
+          "Tomate picado en cubitos",
+          "Cilantro en rama",
+          "Chile de árbol fresco",
+          "Aguacate en cubitos",
+          "Repollo morado picado",
+          "1-paquetito de sazonador goya",
+          "2-onzas de agua",
+          "1-pizca de sal de cebolla",
+          "2-cd. De aceite vegetal",
+          "1-pizca de sal de ajo",
+          "1-pizca de pimienta blanca",
+          "1-pisca de orégano seco",
+          "Media cd. De comino molido",
+          "1-pizca de pimiento morrón en polvo"
+        ]
+      }
+    ],
+    "steps": [
+      "En una sartén previamente caliente incorporamos el aceite y la carne poco a poco.",
+      "También las especias como la sal de cebolla, el polvo de chile morrón, la pimienta blanca, el orégano, la sal, y el sazonador goya.",
+      "Revuelve bien y tapamos.",
+      "Lo dejamos cocinar 3 minutos, pasado ese tiempo incorpora 2 onzas de agua.",
+      "Tapamos y dejamos cocinar por 10 minutos o hasta seque bien el agua y ya está listo para preparar los tacos ."
+    ],
+    "tips": [
+      "Que la carne esté bien caliente"
+    ]
+  }
+}

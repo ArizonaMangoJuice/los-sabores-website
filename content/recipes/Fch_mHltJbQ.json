@@ -1,0 +1,86 @@
+{
+  "videoId": "Fch_mHltJbQ",
+  "slug": "ensalada-con-huevos-al-vapor",
+  "category": "postres",
+  "tags": [
+    "facil",
+    "economica",
+    "picante",
+    "rapido"
+  ],
+  "featured": false,
+  "difficulty": "hard",
+  "prepTime": 10,
+  "cookTime": 10,
+  "servings": 6,
+  "es": {
+    "title": "Ensalada Con Huevos Al Vapor",
+    "description": "Hola amigos, familia saludos para cada uno de ustedes. Hoy les comparto una receta sencilla de preparar que también es saludable y económica. Espero que les guste, es una ensalada con huevo cocido. Te dejo los ingredientes y cómo prepararla.",
+    "ingredients": [
+      {
+        "group": null,
+        "items": [
+          "3-huevos cocidos",
+          "Queso fresco",
+          "Cebolla morada",
+          "8-tomates cherry",
+          "Lechuga picada",
+          "3-chiles gueritos",
+          "Para en salada",
+          "Pan para ensalada",
+          "Un po de aceite",
+          "4-5 olivos"
+        ]
+      }
+    ],
+    "steps": [
+      "En una sartén a fuego alto agrega agua, un poco de sal y quiebra los huevos.",
+      "Ponlos en un plato que estén juntos o cuando el agua empiece a hervir incorpora uno por uno al agua hirviendo.",
+      "Tapa la sartén y deja cocinar por 10 minutos o menos según como quieras de cocido el huevo.",
+      "Retíralo del agua y deja escurrir un poco, otra forma de cocinar huevos para una ensalada es poniendo una vaporera mediana con agua en platitos separados.",
+      "Pon un poco de agua en cada plato y agrega un huevo en cada plato.",
+      "Agrega un poco de aceite vegetal ponlos a cocer al vapor en la vaporera y deja cocinar al menos 5 minutos.",
+      "Yo dejo 10 minutos, así quedan perfectos para la ensalada o cualquier otro platillo.",
+      "En un plato amplio agrega los ingredientes para la ensalada.",
+      "Cuando ya están en el plato corta el huevo y agregarlo a la ensalada con los demás ingredientes y ya está lista la ensalada para servir y disfrutar."
+    ],
+    "tips": [
+      "Es opcional si quieres agregar aderezo el de tu preferencia También puedes agregar un poco de aguacate si así lo deseas."
+    ]
+  },
+  "en": {
+    "title": "Salad With Steamed Eggs",
+    "description": "Hola amigos, familia saludos para cada uno de ustedes. Hoy les comparto una receta sencilla de preparar que también es saludable y económica. Espero que les guste, es una ensalada con huevo cocido. Te dejo los ingredientes y cómo prepararla.",
+    "ingredients": [
+      {
+        "group": null,
+        "items": [
+          "3-huevos cocidos",
+          "Queso fresco",
+          "Cebolla morada",
+          "8-tomates cherry",
+          "Lechuga picada",
+          "3-chiles gueritos",
+          "Para en salada",
+          "Pan para ensalada",
+          "Un po de aceite",
+          "4-5 olivos"
+        ]
+      }
+    ],
+    "steps": [
+      "En una sartén a fuego alto agrega agua, un poco de sal y quiebra los huevos.",
+      "Ponlos en un plato que estén juntos o cuando el agua empiece a hervir incorpora uno por uno al agua hirviendo.",
+      "Tapa la sartén y deja cocinar por 10 minutos o menos según como quieras de cocido el huevo.",
+      "Retíralo del agua y deja escurrir un poco, otra forma de cocinar huevos para una ensalada es poniendo una vaporera mediana con agua en platitos separados.",
+      "Pon un poco de agua en cada plato y agrega un huevo en cada plato.",
+      "Agrega un poco de aceite vegetal ponlos a cocer al vapor en la vaporera y deja cocinar al menos 5 minutos.",
+      "Yo dejo 10 minutos, así quedan perfectos para la ensalada o cualquier otro platillo.",
+      "En un plato amplio agrega los ingredientes para la ensalada.",
+      "Cuando ya están en el plato corta el huevo y agregarlo a la ensalada con los demás ingredientes y ya está lista la ensalada para servir y disfrutar."
+    ],
+    "tips": [
+      "Es opcional si quieres agregar aderezo el de tu preferencia También puedes agregar un poco de aguacate si así lo deseas."
+    ]
+  }
+}

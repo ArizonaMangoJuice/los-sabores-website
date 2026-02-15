@@ -1,0 +1,83 @@
+{
+  "Meta": {
+    "title": "Los Sabores de Mi Tierra - Recetas Tradicionales",
+    "description": "Descubre recetas autenticas de la cocina latinoamericana. Videos paso a paso y recetas completas."
+  },
+  "Nav": {
+    "home": "Inicio",
+    "recipes": "Recetas",
+    "about": "Sobre Nosotros"
+  },
+  "Hero": {
+    "tagline": "Sabores que cuentan historias",
+    "subtitle": "Recetas tradicionales con el alma de nuestra tierra",
+    "cta": "Explorar Recetas",
+    "watchLatest": "Ver Ultimo Video"
+  },
+  "Recipes": {
+    "title": "Nuestras Recetas",
+    "search": "Buscar recetas...",
+    "noResults": "No se encontraron recetas",
+    "viewRecipe": "Ver Receta",
+    "allCategories": "Todas",
+    "prepTime": "Preparacion",
+    "cookTime": "Coccion",
+    "totalTime": "Tiempo Total",
+    "servings": "Porciones",
+    "difficulty": "Dificultad",
+    "ingredients": "Ingredientes",
+    "steps": "Preparacion",
+    "tips": "Consejos del Chef",
+    "print": "Imprimir Receta",
+    "relatedRecipes": "Recetas Relacionadas",
+    "watchVideo": "Ver Video",
+    "fullRecipe": "Receta Completa",
+    "latestVideos": "Ultimos Videos",
+    "featuredRecipes": "Recetas Destacadas",
+    "categories": "Categorias",
+    "viewAll": "Ver Todas"
+  },
+  "Categories": {
+    "sopas": "Sopas y Caldos",
+    "antojitos": "Antojitos",
+    "postres": "Postres",
+    "bebidas": "Bebidas",
+    "carnes": "Carnes",
+    "mariscos": "Mariscos",
+    "salsas": "Salsas",
+    "pan": "Pan y Reposteria",
+    "ensaladas": "Ensaladas",
+    "platillo-fuerte": "Platos Fuertes",
+    "desayunos": "Desayunos"
+  },
+  "Difficulty": {
+    "easy": "Facil",
+    "medium": "Intermedio",
+    "hard": "Avanzado"
+  },
+  "About": {
+    "title": "Sobre Nosotros",
+    "channelStory": "Nuestra Historia",
+    "followUs": "Siguenos en Redes",
+    "subscribers": "Suscriptores",
+    "videos": "Videos",
+    "description": "Bienvenidos a Los Sabores de Mi Tierra, donde compartimos las recetas mas deliciosas de nuestra cocina tradicional. Cada video es preparado con amor y dedicacion para llevar los sabores autenticos hasta tu hogar."
+  },
+  "Footer": {
+    "rights": "Todos los derechos reservados",
+    "madeWith": "Hecho con amor y sabor",
+    "quickLinks": "Enlaces Rapidos",
+    "followUs": "Siguenos"
+  },
+  "Language": {
+    "switch": "English",
+    "current": "ES"
+  },
+  "Common": {
+    "loading": "Cargando...",
+    "error": "Algo salio mal",
+    "back": "Volver",
+    "views": "vistas",
+    "min": "min"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "Meta": {
+    "title": "Los Sabores de Mi Tierra - Traditional Recipes",
+    "description": "Discover authentic Latin American recipes. Step-by-step videos and complete recipes."
+  },
+  "Nav": {
+    "home": "Home",
+    "recipes": "Recipes",
+    "about": "About"
+  },
+  "Hero": {
+    "tagline": "Flavors that tell stories",
+    "subtitle": "Traditional recipes from the heart of our land",
+    "cta": "Explore Recipes",
+    "watchLatest": "Watch Latest Video"
+  },
+  "Recipes": {
+    "title": "Our Recipes",
+    "search": "Search recipes...",
+    "noResults": "No recipes found",
+    "viewRecipe": "View Recipe",
+    "allCategories": "All",
+    "prepTime": "Prep Time",
+    "cookTime": "Cook Time",
+    "totalTime": "Total Time",
+    "servings": "Servings",
+    "difficulty": "Difficulty",
+    "ingredients": "Ingredients",
+    "steps": "Instructions",
+    "tips": "Chef Tips",
+    "print": "Print Recipe",
+    "relatedRecipes": "Related Recipes",
+    "watchVideo": "Watch Video",
+    "fullRecipe": "Full Recipe",
+    "latestVideos": "Latest Videos",
+    "featuredRecipes": "Featured Recipes",
+    "categories": "Categories",
+    "viewAll": "View All"
+  },
+  "Categories": {
+    "sopas": "Soups & Broths",
+    "antojitos": "Street Food",
+    "postres": "Desserts",
+    "bebidas": "Drinks",
+    "carnes": "Meats",
+    "mariscos": "Seafood",
+    "salsas": "Sauces",
+    "pan": "Breads & Pastries",
+    "ensaladas": "Salads",
+    "platillo-fuerte": "Main Dishes",
+    "desayunos": "Breakfast"
+  },
+  "Difficulty": {
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Advanced"
+  },
+  "About": {
+    "title": "About Us",
+    "channelStory": "Our Story",
+    "followUs": "Follow Us",
+    "subscribers": "Subscribers",
+    "videos": "Videos",
+    "description": "Welcome to Los Sabores de Mi Tierra, where we share the most delicious recipes from our traditional cuisine. Every video is prepared with love and dedication to bring authentic flavors to your home."
+  },
+  "Footer": {
+    "rights": "All rights reserved",
+    "madeWith": "Made with love and flavor",
+    "quickLinks": "Quick Links",
+    "followUs": "Follow Us"
+  },
+  "Language": {
+    "switch": "Espanol",
+    "current": "EN"
+  },
+  "Common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "back": "Back",
+    "views": "views",
+    "min": "min"
+  }
+}

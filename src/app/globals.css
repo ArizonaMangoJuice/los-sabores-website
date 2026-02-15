@@ -1,26 +1,153 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Primary */
+  --color-terracotta: #C2572A;
+  --color-terracotta-light: #D4764E;
+  --color-terracotta-dark: #9E3F1A;
+
+  /* Accents */
+  --color-chile-red: #D32F2F;
+  --color-corn-yellow: #F4B942;
+  --color-avocado: #6B8E23;
+  --color-cilantro: #2E7D32;
+
+  /* Neutrals */
+  --color-cream: #FFF8F0;
+  --color-linen: #FAF0E6;
+  --color-warm-gray: #8B7D6B;
+  --color-chocolate: #3E2723;
+  --color-espresso: #1B0E08;
+
+  /* Dark mode */
+  --color-dark-bg: #1A1210;
+  --color-dark-surface: #2C221D;
+  --color-dark-text: #F5E6D3;
+
+  /* Fonts */
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-chocolate);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+/* Text gradient utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-terracotta), var(--color-chile-red), var(--color-corn-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow card effect */
+.card-glow {
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+.card-glow:hover {
+  box-shadow:
+    0 8px 30px rgba(194, 87, 42, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-terracotta), var(--color-corn-yellow), var(--color-chile-red));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* Subtle pattern overlay */
+.pattern-dots {
+  background-image: radial-gradient(circle, var(--color-warm-gray) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.04;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Print styles */
+@media print {
+  nav, footer, .no-print, button {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-gray);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta);
+}
+
+::selection {
+  background-color: var(--color-corn-yellow);
+  color: var(--color-espresso);
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
