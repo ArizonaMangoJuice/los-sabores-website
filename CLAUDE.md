@@ -3,6 +3,11 @@
 ## Overview
 Bilingual (ES/EN) recipe website for the YouTube channel "Los Sabores de Mi Tierra" (@lossaboresdemitierra8378). Built with Next.js, Tailwind CSS 4, and next-intl.
 
+**Live URL:** https://saboresmitierra.com
+**Domain registrar:** Namecheap
+**Hosting:** Vercel (free tier)
+**GitHub repo:** https://github.com/ArizonaMangoJuice/los-sabores-website
+
 ## Tech Stack
 - **Next.js 16** (App Router, TypeScript, Turbopack)
 - **Tailwind CSS 4** with custom `@theme` color palette
@@ -15,12 +20,21 @@ Bilingual (ES/EN) recipe website for the YouTube channel "Los Sabores de Mi Tier
 
 ## How to Update the Site After Uploading New YouTube Videos
 
-After uploading new videos to the YouTube channel, run the sync script to pull them into the website:
+After uploading new videos to the YouTube channel:
 
 ```bash
 cd C:\Users\isael\Desktop\los-sabores-website
+
+# 1. Sync new videos and generate recipes
 node scripts/sync-videos.mjs
+
+# 2. Commit and push to trigger Vercel auto-deploy
+git add content/
+git commit -m "sync: new videos"
+git push
 ```
+
+Vercel auto-deploys on every push to the `master` branch. The site updates within ~1 minute.
 
 **What the sync script does:**
 1. Fetches ALL videos from the YouTube channel via the API
@@ -29,22 +43,47 @@ node scripts/sync-videos.mjs
 4. Generates new recipe JSON files in `content/recipes/` for any videos with recipe descriptions
 5. Skips videos that already have recipe files
 
-**After syncing**, if running in development:
-```bash
-npm run dev
-```
-
-**For production**, rebuild and redeploy:
-```bash
-npm run build
-```
-
 **Tips:**
 - Videos with descriptions shorter than 50 characters or without "INGREDIENTES" won't generate recipes
 - Videos shorter than 2 minutes (shorts) are skipped for recipe generation
 - The website reads from `content/videos.json` and `content/recipes/*.json` — no API calls on page loads
 - Only the sync script and the About page use the YouTube API
 - Run the sync daily or weekly to pick up new uploads
+
+## Deployment
+
+### Vercel Setup
+- **Team:** arizonamangojuices-projects
+- **Project ID:** prj_vLHsy7jaM5sHBwfUiAh91dQJOSPK
+- **Framework:** Next.js (auto-detected)
+- **Auto-deploy:** On push to `master` branch via GitHub integration
+
+### Vercel Environment Variables
+Set in Vercel dashboard (Settings > Environment Variables):
+- `YOUTUBE_API_KEY` — YouTube Data API v3 key
+- `YOUTUBE_CHANNEL_ID` — `UCzLEgiIYsvVmDdTg-GHo1Ow`
+- `YOUTUBE_CHANNEL_HANDLE` — `lossaboresdemitierra8378`
+- `NEXT_PUBLIC_SITE_URL` — `https://saboresmitierra.com`
+
+### DNS (Namecheap)
+| Type | Host | Value |
+|------|------|-------|
+| A Record | `@` | `76.76.21.21` |
+| CNAME | `www` | `cname.vercel-dns.com` |
+
+### Manual Deploy (if needed)
+```bash
+cd C:\Users\isael\Desktop\los-sabores-website
+vercel deploy --prod -y
+```
+
+## SEO
+- **Sitemap:** auto-generated at `/sitemap.xml` (all videos + recipes, both locales)
+- **Robots.txt:** auto-generated at `/robots.txt`
+- **JSON-LD:** WebSite schema on all pages, Recipe schema on recipe detail pages
+- **Open Graph:** title, description, channel logo for social sharing
+- **Meta tags:** keywords, canonical URLs, alternate language links
+- **Google indexing:** `max-video-preview: -1`, `max-image-preview: large`
 
 ## Data Model
 
@@ -74,6 +113,8 @@ content/
 
 src/
   app/[locale]/        — Pages (homepage, recipes, recipe detail, about)
+  app/sitemap.ts       — Dynamic sitemap generator
+  app/robots.ts        — Robots.txt generator
   components/          — React components (layout, home, recipes, ui)
   lib/                 — Utilities (videos.ts, recipes.ts, youtube.ts, utils.ts)
   i18n/                — Internationalization config
@@ -89,6 +130,10 @@ scripts/
 ```
 
 ## Design System
+
+### Channel Assets
+- **Logo:** https://yt3.ggpht.com/ytc/AIdro_mmlKfFRPNU40tFbHFsp4DhLiI2UZNQCb19f2lf2BYQZQY=s800-c-k-c0x00ffffff-no-rj
+- **Banner:** https://yt3.googleusercontent.com/fImzRdG9DH63auuO6IbzqoQY5oaygPurOLh6Xbg6wwKLnrN4TzTxWBrbTVT5cFLbJf3jJnFa9Q
 
 ### Colors
 | Name | Hex | Usage |
@@ -108,12 +153,19 @@ scripts/
 - **Playfair Display** — Headings (serif, elegant)
 - **Inter** — Body text (sans-serif, clean)
 
+### CSS Utilities (globals.css)
+- `.text-gradient` — Terracotta-to-yellow gradient text
+- `.card-glow` — Warm shadow glow on hover
+- `.gradient-border` — Animated gradient border on hover
+- `.shimmer` — Shimmer loading animation
+- `.scrollbar-hide` — Hide scrollbar
+
 ## Environment Variables (.env.local)
 ```
 YOUTUBE_API_KEY=<key>
 YOUTUBE_CHANNEL_HANDLE=lossaboresdemitierra8378
 YOUTUBE_CHANNEL_ID=UCzLEgiIYsvVmDdTg-GHo1Ow
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SITE_URL=https://saboresmitierra.com
 ```
 
 ## Development
@@ -122,3 +174,8 @@ npm run dev    # Start dev server (http://localhost:3000)
 npm run build  # Production build
 npm run start  # Start production server
 ```
+
+## Future Monetization
+- Google AdSense (add after traffic builds)
+- Amazon affiliate links for kitchen tools on recipe pages
+- YouTube channel traffic from website visitors
