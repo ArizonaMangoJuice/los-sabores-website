@@ -76,6 +76,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
       },
     },
+    {
+      url: `${BASE_URL}/es/privacidad`,
+      lastModified: new Date(),
+      changeFrequency: "yearly" as const,
+      priority: 0.2,
+      alternates: {
+        languages: {
+          es: `${BASE_URL}/es/privacidad`,
+          en: `${BASE_URL}/en/privacy`,
+        },
+      },
+    },
+    {
+      url: `${BASE_URL}/en/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly" as const,
+      priority: 0.2,
+      alternates: {
+        languages: {
+          es: `${BASE_URL}/es/privacidad`,
+          en: `${BASE_URL}/en/privacy`,
+        },
+      },
+    },
   ];
 
   // Recipe detail pages with proper localized URLs and hreflang alternates

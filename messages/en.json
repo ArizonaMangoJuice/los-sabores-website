@@ -63,11 +63,34 @@
     "videos": "Videos",
     "description": "Welcome to Los Sabores de Mi Tierra, where we share the most delicious recipes from our traditional cuisine. Every video is prepared with love and dedication to bring authentic flavors to your home."
   },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: February 15, 2026",
+    "intro": "At Los Sabores de Mi Tierra, we respect your privacy. This policy explains how we collect, use, and protect your information when you visit our website saboresmitierra.com.",
+    "section1Title": "Information We Collect",
+    "section1Text": "We do not collect personal information directly. However, we use third-party services that may automatically collect data:",
+    "section1Items": "Site usage data (pages visited, time spent) through Google Analytics|Advertising cookies through Google AdSense|Video playback data through embedded YouTube videos",
+    "section2Title": "Google Analytics",
+    "section2Text": "We use Google Analytics to understand how visitors use our site. Google Analytics collects information such as your IP address (anonymized), browser type, pages visited, and time spent. This information helps us improve our content and user experience.",
+    "section3Title": "Google AdSense",
+    "section3Text": "We use Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits to this and other websites. You can opt out of personalized advertising by visiting Google's Ad Settings.",
+    "section4Title": "YouTube Videos",
+    "section4Text": "Our site includes embedded YouTube videos. When you play a video, YouTube may collect information according to its own privacy policy.",
+    "section5Title": "Cookies",
+    "section5Text": "Our site uses cookies for the operation of third-party services (Analytics, AdSense, YouTube). You can control cookies through your browser settings.",
+    "section6Title": "Your Rights",
+    "section6Text": "You can opt out of Google Analytics tracking by using Google's browser add-on. You can also disable cookies in your browser settings.",
+    "section7Title": "Contact",
+    "section7Text": "If you have questions about this privacy policy, you can contact us through our YouTube channel.",
+    "section8Title": "Changes to this Policy",
+    "section8Text": "We may update this privacy policy from time to time. Any changes will be posted on this page."
+  },
   "Footer": {
     "rights": "All rights reserved",
     "madeWith": "Made with love and flavor",
     "quickLinks": "Quick Links",
-    "followUs": "Follow Us"
+    "followUs": "Follow Us",
+    "privacy": "Privacy"
   },
   "Language": {
     "switch": "Espanol",

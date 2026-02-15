@@ -72,6 +72,12 @@ export default function Footer() {
               >
                 {tNav("about")}
               </Link>
+              <Link
+                href="/privacidad"
+                className="text-sm text-linen/60 hover:text-corn-yellow hover:translate-x-1 transition-all"
+              >
+                {t("privacy")}
+              </Link>
             </nav>
           </div>
 

@@ -5,6 +5,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import GoogleAnalytics from "@/components/ads/GoogleAnalytics";
 import type { Metadata } from "next";
 import "../globals.css";
 
@@ -155,6 +156,7 @@ export default async function LocaleLayout({
             }),
           }}
         />
+        <GoogleAnalytics />
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main className="min-h-screen">{children}</main>

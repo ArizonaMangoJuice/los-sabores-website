@@ -63,11 +63,34 @@
     "videos": "Videos",
     "description": "Bienvenidos a Los Sabores de Mi Tierra, donde compartimos las recetas mas deliciosas de nuestra cocina tradicional. Cada video es preparado con amor y dedicacion para llevar los sabores autenticos hasta tu hogar."
   },
+  "Privacy": {
+    "title": "Politica de Privacidad",
+    "lastUpdated": "Ultima actualizacion: 15 de febrero de 2026",
+    "intro": "En Los Sabores de Mi Tierra, respetamos tu privacidad. Esta politica explica como recopilamos, usamos y protegemos tu informacion cuando visitas nuestro sitio web saboresmitierra.com.",
+    "section1Title": "Informacion que Recopilamos",
+    "section1Text": "No recopilamos informacion personal directamente. Sin embargo, utilizamos servicios de terceros que pueden recopilar datos automaticamente:",
+    "section1Items": "Datos de uso del sitio (paginas visitadas, tiempo de permanencia) a traves de Google Analytics|Cookies publicitarias a traves de Google AdSense|Datos de reproduccion de videos a traves de YouTube embebido",
+    "section2Title": "Google Analytics",
+    "section2Text": "Utilizamos Google Analytics para entender como los visitantes usan nuestro sitio. Google Analytics recopila informacion como tu direccion IP (anonimizada), tipo de navegador, paginas visitadas y tiempo de permanencia. Esta informacion nos ayuda a mejorar el contenido y la experiencia del usuario.",
+    "section3Title": "Google AdSense",
+    "section3Text": "Utilizamos Google AdSense para mostrar anuncios. Google puede usar cookies para mostrar anuncios basados en tus visitas anteriores a este y otros sitios web. Puedes optar por no usar cookies personalizadas visitando la configuracion de anuncios de Google.",
+    "section4Title": "Videos de YouTube",
+    "section4Text": "Nuestro sitio incluye videos embebidos de YouTube. Al reproducir un video, YouTube puede recopilar informacion segun su propia politica de privacidad.",
+    "section5Title": "Cookies",
+    "section5Text": "Nuestro sitio utiliza cookies para el funcionamiento de servicios de terceros (Analytics, AdSense, YouTube). Puedes controlar las cookies a traves de la configuracion de tu navegador.",
+    "section6Title": "Tus Derechos",
+    "section6Text": "Puedes optar por no participar en el seguimiento de Google Analytics utilizando el complemento de navegador de Google. Tambien puedes deshabilitar las cookies en la configuracion de tu navegador.",
+    "section7Title": "Contacto",
+    "section7Text": "Si tienes preguntas sobre esta politica de privacidad, puedes contactarnos a traves de nuestro canal de YouTube.",
+    "section8Title": "Cambios a esta Politica",
+    "section8Text": "Podemos actualizar esta politica de privacidad ocasionalmente. Cualquier cambio sera publicado en esta pagina."
+  },
   "Footer": {
     "rights": "Todos los derechos reservados",
     "madeWith": "Hecho con amor y sabor",
     "quickLinks": "Enlaces Rapidos",
-    "followUs": "Siguenos"
+    "followUs": "Siguenos",
+    "privacy": "Privacidad"
   },
   "Language": {
     "switch": "English",
