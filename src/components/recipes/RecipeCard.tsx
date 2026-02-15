@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -45,6 +46,7 @@ export default function RecipeCard({
 }: RecipeCardProps) {
   const t = useTranslations("Recipes");
   const tDiff = useTranslations("Difficulty");
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const totalTime = (prepTime || 0) + (cookTime || 0);
 
@@ -58,14 +60,21 @@ export default function RecipeCard({
         className="group block bg-white rounded-2xl overflow-hidden card-glow shadow-sm hover:shadow-xl transition-all duration-300 border border-warm-gray/5 hover:border-terracotta/15"
       >
         {/* Thumbnail */}
-        <div className="relative aspect-video overflow-hidden">
+        <div className="relative aspect-video overflow-hidden bg-linen">
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-linen animate-pulse" />
+          )}
           <Image
             src={thumbnailUrl || `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
             alt={title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            className={`object-cover transition-all duration-700 group-hover:scale-110 ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            onLoad={() => setImageLoaded(true)}
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           {category && (

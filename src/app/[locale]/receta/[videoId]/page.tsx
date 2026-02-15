@@ -1,9 +1,10 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
-import { getVideoById } from "@/lib/videos";
-import { getRecipeByVideoId } from "@/lib/recipes";
+import { getVideoById, getAllVideos } from "@/lib/videos";
+import { getRecipeByVideoId, getAllRecipes } from "@/lib/recipes";
 import YouTubeEmbed from "@/components/recipes/YouTubeEmbed";
 import RecipeDetails from "@/components/recipes/RecipeDetails";
+import RecipeCard from "@/components/recipes/RecipeCard";
 import Badge from "@/components/ui/Badge";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { ArrowLeft } from "lucide-react";
@@ -229,8 +230,91 @@ export default async function RecipePage({ params }: Props) {
               className="rounded-xl"
             />
           </div>
+
+          {/* Related recipes */}
+          {recipe && (
+            <RelatedRecipes
+              currentVideoId={videoId}
+              category={recipe.category}
+              locale={locale}
+              label={t("relatedRecipes")}
+            />
+          )}
         </div>
       </article>
     </>
+  );
+}
+
+async function RelatedRecipes({
+  currentVideoId,
+  category,
+  locale,
+  label,
+}: {
+  currentVideoId: string;
+  category: string;
+  locale: string;
+  label: string;
+}) {
+  const allRecipes = await getAllRecipes();
+  const allVideos = await getAllVideos();
+
+  // Get recipes from the same category, excluding current
+  let related = allRecipes.filter(
+    (r) => r.category === category && r.videoId !== currentVideoId,
+  );
+
+  // If not enough, fill with random recipes
+  if (related.length < 3) {
+    const others = allRecipes.filter(
+      (r) => r.videoId !== currentVideoId && r.category !== category,
+    );
+    related = [...related, ...others.slice(0, 3 - related.length)];
+  }
+
+  related = related.slice(0, 3);
+
+  if (related.length === 0) return null;
+
+  const videoMap = new Map(allVideos.map((v) => [v.id, v]));
+  const tCat = await getTranslations({ locale, namespace: "Categories" });
+
+  return (
+    <div className="mt-16 pt-10 border-t border-warm-gray/10 no-print">
+      <ScrollReveal>
+        <h2 className="font-heading font-bold text-2xl text-chocolate mb-6">
+          {label}
+        </h2>
+      </ScrollReveal>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {related.map((r, i) => {
+          const video = videoMap.get(r.videoId);
+          const recipeTitle =
+            locale === "es" ? r.es.title : r.en.title;
+          return (
+            <ScrollReveal key={r.videoId} delay={i * 0.1}>
+              <RecipeCard
+                videoId={r.videoId}
+                thumbnailUrl={
+                  video?.thumbnailUrl ||
+                  `https://i.ytimg.com/vi/${r.videoId}/hqdefault.jpg`
+                }
+                title={recipeTitle}
+                category={r.category}
+                categoryLabel={tCat(r.category)}
+                duration={video?.duration}
+                viewCount={video?.viewCount}
+                hasRecipe={true}
+                prepTime={r.prepTime}
+                cookTime={r.cookTime}
+                difficulty={r.difficulty}
+                servings={r.servings}
+              />
+            </ScrollReveal>
+          );
+        })}
+      </div>
+    </div>
   );
 }

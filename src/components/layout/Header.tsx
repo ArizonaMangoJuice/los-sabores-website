@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import LanguageToggle from "./LanguageToggle";
@@ -14,6 +14,7 @@ const CHANNEL_LOGO =
 
 export default function Header() {
   const t = useTranslations("Nav");
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -29,6 +30,11 @@ export default function Header() {
     { href: "/sobre" as const, label: t("about") },
   ];
 
+  function isActive(href: string) {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  }
+
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -40,7 +46,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-terracotta/20 group-hover:ring-terracotta/50 transition-all">
+            <div
+              className={`relative w-9 h-9 rounded-full overflow-hidden transition-all ${
+                scrolled
+                  ? "ring-3 ring-terracotta/30"
+                  : "ring-2 ring-terracotta/20 group-hover:ring-terracotta/50"
+              }`}
+            >
               <Image
                 src={CHANNEL_LOGO}
                 alt={SITE_NAME}
@@ -59,7 +71,11 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-chocolate/80 hover:text-terracotta transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-terracotta after:rounded-full after:transition-all hover:after:w-full"
+                className={`text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-terracotta after:rounded-full after:transition-all ${
+                  isActive(link.href)
+                    ? "text-terracotta after:w-full"
+                    : "text-chocolate/80 hover:text-terracotta after:w-0 hover:after:w-full"
+                }`}
               >
                 {link.label}
               </Link>
@@ -92,15 +108,25 @@ export default function Header() {
             className="md:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-warm-gray/10"
           >
             <nav className="px-4 py-4 space-y-1">
-              {navLinks.map((link) => (
-                <Link
+              {navLinks.map((link, i) => (
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block text-lg font-medium text-chocolate hover:text-terracotta hover:bg-terracotta/5 transition-all py-3 px-3 rounded-xl"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.07 }}
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block text-lg font-medium transition-all py-3 px-3 rounded-xl ${
+                      isActive(link.href)
+                        ? "text-terracotta bg-terracotta/5 border-l-3 border-terracotta"
+                        : "text-chocolate hover:text-terracotta hover:bg-terracotta/5"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
           </motion.div>

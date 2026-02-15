@@ -76,10 +76,13 @@ export default function RecipeDetails({ recipe, locale }: RecipeDetailsProps) {
         </div>
       </div>
 
+      {/* Divider */}
+      <div className="border-t border-warm-gray/10" />
+
       {/* Print button */}
       <button
         onClick={() => window.print()}
-        className="no-print flex items-center gap-2 px-4 py-2 border border-warm-gray/30 rounded-xl hover:bg-linen transition-colors text-sm"
+        className="no-print flex items-center gap-2 px-5 py-2.5 border-2 border-terracotta/30 text-terracotta rounded-xl hover:bg-terracotta hover:text-white transition-all text-sm font-medium"
       >
         <Printer className="w-4 h-4" />
         {t("print")}
@@ -87,7 +90,7 @@ export default function RecipeDetails({ recipe, locale }: RecipeDetailsProps) {
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
         {/* Ingredients */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 lg:sticky lg:top-24 lg:self-start">
           <h3 className="font-heading font-bold text-xl mb-4 text-chocolate">
             {t("ingredients")}
           </h3>
@@ -135,7 +138,7 @@ export default function RecipeDetails({ recipe, locale }: RecipeDetailsProps) {
           <ol className="space-y-4">
             {localeData.steps.map((step, i) => (
               <li key={i} className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-terracotta text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <div className={`flex-shrink-0 ${i + 1 > 9 ? "w-9 h-9" : "w-8 h-8"} bg-terracotta text-white rounded-full flex items-center justify-center font-bold text-sm`}>
                   {i + 1}
                 </div>
                 <p className="text-sm text-chocolate/90 pt-1 leading-relaxed">

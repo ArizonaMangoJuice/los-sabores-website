@@ -34,21 +34,25 @@ const iconMap: Record<string, LucideIcon> = {
   desayunos: Egg,
 };
 
-const colorMap: Record<string, string> = {
-  sopas: "from-amber-400 to-amber-600",
-  antojitos: "from-orange-400 to-orange-600",
-  postres: "from-pink-400 to-pink-600",
-  bebidas: "from-purple-400 to-purple-600",
-  carnes: "from-red-400 to-red-600",
-  mariscos: "from-cyan-400 to-cyan-600",
-  salsas: "from-rose-400 to-rose-600",
-  pan: "from-yellow-400 to-yellow-600",
-  ensaladas: "from-green-400 to-green-600",
-  "platillo-fuerte": "from-stone-400 to-stone-600",
-  desayunos: "from-sky-400 to-sky-600",
+const colorMap: Record<string, { gradient: string; bg: string }> = {
+  sopas: { gradient: "from-amber-400 to-amber-600", bg: "bg-amber-50" },
+  antojitos: { gradient: "from-orange-400 to-orange-600", bg: "bg-orange-50" },
+  postres: { gradient: "from-pink-400 to-pink-600", bg: "bg-pink-50" },
+  bebidas: { gradient: "from-purple-400 to-purple-600", bg: "bg-purple-50" },
+  carnes: { gradient: "from-red-400 to-red-600", bg: "bg-red-50" },
+  mariscos: { gradient: "from-cyan-400 to-cyan-600", bg: "bg-cyan-50" },
+  salsas: { gradient: "from-rose-400 to-rose-600", bg: "bg-rose-50" },
+  pan: { gradient: "from-yellow-400 to-yellow-600", bg: "bg-yellow-50" },
+  ensaladas: { gradient: "from-green-400 to-green-600", bg: "bg-green-50" },
+  "platillo-fuerte": { gradient: "from-stone-400 to-stone-600", bg: "bg-stone-50" },
+  desayunos: { gradient: "from-sky-400 to-sky-600", bg: "bg-sky-50" },
 };
 
-export default function CategoryShowcase() {
+interface CategoryShowcaseProps {
+  recipeCounts?: Record<string, number>;
+}
+
+export default function CategoryShowcase({ recipeCounts }: CategoryShowcaseProps) {
   const t = useTranslations("Recipes");
   const tCat = useTranslations("Categories");
 
@@ -67,22 +71,29 @@ export default function CategoryShowcase() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {CATEGORIES.map((cat, i) => {
             const Icon = iconMap[cat] || ChefHat;
+            const colors = colorMap[cat] || { gradient: "from-gray-400 to-gray-600", bg: "bg-gray-50" };
+            const count = recipeCounts?.[cat] ?? 0;
             return (
               <ScrollReveal key={cat} delay={i * 0.05}>
                 <Link href="/recetas">
                   <motion.div
                     whileHover={{ scale: 1.05, y: -4 }}
                     whileTap={{ scale: 0.97 }}
-                    className="flex flex-col items-center gap-3 p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                    className={`relative flex flex-col items-center gap-3 p-5 ${colors.bg} rounded-2xl shadow-sm hover:shadow-lg transition-all cursor-pointer border border-transparent hover:border-warm-gray/10`}
                   >
                     <div
-                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${colorMap[cat] || "from-gray-400 to-gray-600"} flex items-center justify-center`}
+                      className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center shadow-md`}
                     >
-                      <Icon className="w-6 h-6 text-white" />
+                      <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <span className="text-xs font-semibold text-chocolate text-center">
+                    <span className="text-sm font-semibold text-chocolate text-center leading-tight">
                       {tCat(cat)}
                     </span>
+                    {count > 0 && (
+                      <span className="text-xs text-warm-gray">
+                        {count} {count === 1 ? "receta" : "recetas"}
+                      </span>
+                    )}
                   </motion.div>
                 </Link>
               </ScrollReveal>

@@ -12,25 +12,30 @@ export default function SubscribeCTA() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="relative bg-gradient-to-br from-chile-red via-terracotta to-terracotta-dark rounded-3xl p-10 md:p-14 text-center overflow-hidden">
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-60 h-60 bg-white/5 rounded-full -translate-y-1/3 translate-x-1/3" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/3 -translate-x-1/3" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/5 rounded-full" />
+            {/* Decorative elements - more visible */}
+            <div className="absolute top-0 right-0 w-60 h-60 bg-white/10 rounded-full -translate-y-1/3 translate-x-1/3" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full translate-y-1/3 -translate-x-1/3" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/10 rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] border border-white/5 rounded-full" />
 
             <div className="relative z-10">
-              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-white/20 shadow-xl">
-                <Image
-                  src={CHANNEL_LOGO}
-                  alt={SITE_NAME}
-                  fill
-                  className="object-cover"
-                  sizes="80px"
-                />
+              {/* Channel logo with animated pulse ring */}
+              <div className="relative w-20 h-20 mx-auto mb-6">
+                <div className="absolute inset-0 rounded-full ring-4 ring-white/20 animate-pulse" />
+                <div className="relative w-20 h-20 rounded-full overflow-hidden ring-4 ring-white/30 shadow-xl">
+                  <Image
+                    src={CHANNEL_LOGO}
+                    alt={SITE_NAME}
+                    fill
+                    className="object-cover"
+                    sizes="80px"
+                  />
+                </div>
               </div>
               <h2 className="font-heading font-bold text-2xl md:text-3xl text-white mb-3">
                 {SITE_NAME}
               </h2>
-              <p className="text-white/75 max-w-md mx-auto mb-8 leading-relaxed">
+              <p className="text-white/80 max-w-md mx-auto mb-8 leading-relaxed">
                 Suscribete para nuevas recetas cada semana / Subscribe for new
                 recipes every week
               </p>

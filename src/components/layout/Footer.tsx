@@ -1,7 +1,9 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { Youtube, Heart } from "lucide-react";
+import { Youtube, Heart, ArrowUp } from "lucide-react";
 import { SITE_NAME, SOCIAL_LINKS } from "@/lib/constants";
 
 const CHANNEL_LOGO =
@@ -86,9 +88,18 @@ export default function Footer() {
             <h3 className="font-heading font-bold text-cream mb-5 text-sm uppercase tracking-wider">
               {t("followUs")}
             </h3>
-            <p className="text-sm text-linen/50 leading-relaxed">
-              {t("madeWith")}
+            <p className="text-sm text-linen/50 leading-relaxed mb-5">
+              {t("followDescription")}
             </p>
+            <a
+              href={SOCIAL_LINKS.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-chile-red/15 border border-chile-red/25 text-chile-red rounded-full hover:bg-chile-red hover:text-white transition-all text-sm font-medium"
+            >
+              <Youtube className="w-4 h-4" />
+              {t("subscribeYoutube")}
+            </a>
           </div>
         </div>
 
@@ -97,9 +108,19 @@ export default function Footer() {
           <p>
             &copy; {new Date().getFullYear()} {SITE_NAME}. {t("rights")}.
           </p>
-          <p className="flex items-center gap-1.5">
-            {t("madeWith")} <Heart className="w-3 h-3 text-chile-red fill-chile-red" />
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="flex items-center gap-1.5">
+              {t("madeWith")} <Heart className="w-3 h-3 text-chile-red fill-chile-red" />
+            </p>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="flex items-center gap-1.5 text-linen/40 hover:text-terracotta transition-colors"
+              aria-label="Back to top"
+            >
+              <ArrowUp className="w-3.5 h-3.5" />
+              Top
+            </button>
+          </div>
         </div>
       </div>
     </footer>

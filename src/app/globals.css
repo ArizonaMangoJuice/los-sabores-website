@@ -87,7 +87,27 @@ h1, h2, h3, h4, h5, h6 {
 .pattern-dots {
   background-image: radial-gradient(circle, var(--color-warm-gray) 1px, transparent 1px);
   background-size: 24px 24px;
-  opacity: 0.04;
+  opacity: 0.06;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fade in animation for images */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Shimmer animation */

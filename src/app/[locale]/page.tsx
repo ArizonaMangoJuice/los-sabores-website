@@ -73,7 +73,15 @@ export default async function HomePage({ params }: Props) {
         />
       </div>
 
-      <CategoryShowcase />
+      <CategoryShowcase
+        recipeCounts={recipes.reduce(
+          (acc, r) => {
+            acc[r.category] = (acc[r.category] || 0) + 1;
+            return acc;
+          },
+          {} as Record<string, number>,
+        )}
+      />
       <SubscribeCTA />
     </>
   );
