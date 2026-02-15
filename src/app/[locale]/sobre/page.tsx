@@ -120,7 +120,7 @@ export default async function AboutPage({ params }: Props) {
 
         {/* Channel info card */}
         <ScrollReveal delay={0.1}>
-          <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12 mb-12">
+          <div className="bg-white rounded-3xl shadow-lg p-6 sm:p-8 md:p-12 mb-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
               {channelInfo?.thumbnailUrl && (
                 <div className="flex-shrink-0">
@@ -145,15 +145,15 @@ export default async function AboutPage({ params }: Props) {
 
             {/* Stats */}
             {channelInfo && (
-              <div className="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-warm-gray/10">
-                <div className="text-center p-4 bg-linen rounded-2xl">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-8 pt-8 border-t border-warm-gray/10">
+                <div className="text-center p-3 sm:p-4 bg-linen rounded-2xl">
                   <Users className="w-6 h-6 text-terracotta mx-auto mb-2" />
                   <p className="font-heading font-bold text-2xl text-chocolate">
                     {formatViewCount(channelInfo.subscriberCount)}
                   </p>
                   <p className="text-sm text-warm-gray">{t("subscribers")}</p>
                 </div>
-                <div className="text-center p-4 bg-linen rounded-2xl">
+                <div className="text-center p-3 sm:p-4 bg-linen rounded-2xl">
                   <Video className="w-6 h-6 text-terracotta mx-auto mb-2" />
                   <p className="font-heading font-bold text-2xl text-chocolate">
                     {channelInfo.videoCount}
@@ -167,7 +167,7 @@ export default async function AboutPage({ params }: Props) {
 
         {/* Story section */}
         <ScrollReveal delay={0.2}>
-          <div className="bg-gradient-to-br from-terracotta to-chile-red rounded-3xl p-8 md:p-12 text-center">
+          <div className="bg-gradient-to-br from-terracotta to-chile-red rounded-3xl p-6 sm:p-8 md:p-12 text-center">
             <h3 className="font-heading font-bold text-2xl text-white mb-6">
               {t("followUs")}
             </h3>
@@ -175,7 +175,7 @@ export default async function AboutPage({ params }: Props) {
               href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-chile-red font-bold rounded-full hover:bg-cream transition-colors shadow-lg"
+              className="inline-flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-white text-chile-red font-bold rounded-full hover:bg-cream transition-colors shadow-lg"
             >
               <Youtube className="w-6 h-6" />
               YouTube

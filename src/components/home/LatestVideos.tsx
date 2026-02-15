@@ -27,7 +27,7 @@ export default function LatestVideos({
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="flex items-end justify-between mb-12">
+          <div className="flex items-end justify-between mb-8 sm:mb-12">
             <div>
               <span className="text-terracotta text-sm font-semibold uppercase tracking-wider">
                 {t("latestVideos")}
@@ -47,7 +47,7 @@ export default function LatestVideos({
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
           {videos.slice(0, 6).map((video, i) => {
             const recipe = recipeMap.get(video.id);
             return (

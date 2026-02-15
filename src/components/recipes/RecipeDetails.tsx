@@ -37,8 +37,8 @@ export default function RecipeDetails({ recipe, locale }: RecipeDetailsProps) {
   return (
     <div className="space-y-8">
       {/* Meta badges */}
-      <div className="flex flex-wrap gap-3">
-        <div className="flex items-center gap-2 bg-linen rounded-xl px-4 py-2">
+      <div className="flex flex-wrap gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 bg-linen rounded-xl px-3 py-1.5 sm:px-4 sm:py-2">
           <Clock className="w-4 h-4 text-terracotta" />
           <div>
             <p className="text-xs text-warm-gray">{t("prepTime")}</p>
@@ -47,7 +47,7 @@ export default function RecipeDetails({ recipe, locale }: RecipeDetailsProps) {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-2 bg-linen rounded-xl px-4 py-2">
+        <div className="flex items-center gap-2 bg-linen rounded-xl px-3 py-1.5 sm:px-4 sm:py-2">
           <Clock className="w-4 h-4 text-chile-red" />
           <div>
             <p className="text-xs text-warm-gray">{t("cookTime")}</p>
@@ -56,14 +56,14 @@ export default function RecipeDetails({ recipe, locale }: RecipeDetailsProps) {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-2 bg-linen rounded-xl px-4 py-2">
+        <div className="flex items-center gap-2 bg-linen rounded-xl px-3 py-1.5 sm:px-4 sm:py-2">
           <Users className="w-4 h-4 text-avocado" />
           <div>
             <p className="text-xs text-warm-gray">{t("servings")}</p>
             <p className="text-sm font-semibold">{recipe.servings}</p>
           </div>
         </div>
-        <div className="flex items-center gap-2 bg-linen rounded-xl px-4 py-2">
+        <div className="flex items-center gap-2 bg-linen rounded-xl px-3 py-1.5 sm:px-4 sm:py-2">
           <ChefHat className="w-4 h-4 text-corn-yellow" />
           <div>
             <p className="text-xs text-warm-gray">{t("difficulty")}</p>
@@ -138,7 +138,7 @@ export default function RecipeDetails({ recipe, locale }: RecipeDetailsProps) {
           <ol className="space-y-4">
             {localeData.steps.map((step, i) => (
               <li key={i} className="flex gap-4">
-                <div className={`flex-shrink-0 ${i + 1 > 9 ? "w-9 h-9" : "w-8 h-8"} bg-terracotta text-white rounded-full flex items-center justify-center font-bold text-sm`}>
+                <div className="flex-shrink-0 w-8 h-8 bg-terracotta text-white rounded-full flex items-center justify-center font-bold text-sm">
                   {i + 1}
                 </div>
                 <p className="text-sm text-chocolate/90 pt-1 leading-relaxed">

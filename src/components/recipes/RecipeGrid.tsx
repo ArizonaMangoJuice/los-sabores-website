@@ -88,30 +88,33 @@ export default function RecipeGrid({ videos, recipes }: RecipeGridProps) {
       </div>
 
       {/* Category filters */}
-      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-        <button
-          onClick={() => setActiveCategory("all")}
-          className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-            activeCategory === "all"
-              ? "bg-terracotta text-white shadow-md"
-              : "bg-linen text-chocolate hover:bg-terracotta/10"
-          }`}
-        >
-          {t("allCategories")}
-        </button>
-        {CATEGORIES.map((cat) => (
+      <div className="relative">
+        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
           <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
+            onClick={() => setActiveCategory("all")}
             className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-              activeCategory === cat
+              activeCategory === "all"
                 ? "bg-terracotta text-white shadow-md"
                 : "bg-linen text-chocolate hover:bg-terracotta/10"
             }`}
           >
-            {tCat(cat)}
+            {t("allCategories")}
           </button>
-        ))}
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+                activeCategory === cat
+                  ? "bg-terracotta text-white shadow-md"
+                  : "bg-linen text-chocolate hover:bg-terracotta/10"
+              }`}
+            >
+              {tCat(cat)}
+            </button>
+          ))}
+        </div>
+        <div className="pointer-events-none absolute right-0 top-0 bottom-2 w-8 bg-gradient-to-l from-cream to-transparent sm:hidden" />
       </div>
 
       {/* Results count */}
@@ -125,7 +128,7 @@ export default function RecipeGrid({ videos, recipes }: RecipeGridProps) {
           <p className="text-warm-gray text-lg">{t("noResults")}</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {filteredVideos.map((video, index) => {
             const recipe = recipeMap.get(video.id);
             return (

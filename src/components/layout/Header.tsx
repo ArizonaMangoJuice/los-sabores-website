@@ -107,7 +107,7 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-warm-gray/10"
           >
-            <nav className="px-4 py-4 space-y-1">
+            <nav className="px-4 py-4 space-y-0 divide-y divide-warm-gray/10">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}

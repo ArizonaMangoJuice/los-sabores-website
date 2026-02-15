@@ -12,7 +12,7 @@ export default function InFeedAd({ className = "" }: InFeedAdProps) {
 
   return (
     <div
-      className={`bg-white rounded-2xl overflow-hidden shadow-sm border border-warm-gray/5 p-4 flex items-center justify-center min-h-[250px] ${className}`}
+      className={`bg-white rounded-2xl overflow-hidden shadow-sm border border-warm-gray/5 p-4 flex items-center justify-center min-h-[200px] sm:min-h-[250px] ${className}`}
     >
       <AdUnit
         slot={process.env.NEXT_PUBLIC_AD_SLOT_INFEED || ""}

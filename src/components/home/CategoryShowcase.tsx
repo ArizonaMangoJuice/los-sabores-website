@@ -68,7 +68,7 @@ export default function CategoryShowcase({ recipeCounts }: CategoryShowcaseProps
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
           {CATEGORIES.map((cat, i) => {
             const Icon = iconMap[cat] || ChefHat;
             const colors = colorMap[cat] || { gradient: "from-gray-400 to-gray-600", bg: "bg-gray-50" };
@@ -79,7 +79,7 @@ export default function CategoryShowcase({ recipeCounts }: CategoryShowcaseProps
                   <motion.div
                     whileHover={{ scale: 1.05, y: -4 }}
                     whileTap={{ scale: 0.97 }}
-                    className={`relative flex flex-col items-center gap-3 p-5 ${colors.bg} rounded-2xl shadow-sm hover:shadow-lg transition-all cursor-pointer border border-transparent hover:border-warm-gray/10`}
+                    className={`relative flex flex-col items-center gap-2.5 sm:gap-3 p-4 sm:p-5 ${colors.bg} rounded-2xl shadow-sm hover:shadow-lg transition-all cursor-pointer border border-transparent hover:border-warm-gray/10`}
                   >
                     <div
                       className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center shadow-md`}

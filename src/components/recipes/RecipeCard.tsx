@@ -98,7 +98,7 @@ export default function RecipeCard({
         </div>
 
         {/* Content */}
-        <div className="p-4 pb-5">
+        <div className="p-3.5 pb-4 sm:p-4 sm:pb-5">
           <h3 className="font-heading font-bold text-base text-chocolate line-clamp-2 group-hover:text-terracotta transition-colors duration-200 min-h-[3rem]">
             {title}
           </h3>

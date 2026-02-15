@@ -80,7 +80,7 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="font-heading font-extrabold text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-6 drop-shadow-lg"
+          className="font-heading font-extrabold text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-4 sm:mb-6 drop-shadow-lg"
         >
           {t("tagline")}
         </motion.h1>
@@ -89,7 +89,7 @@ export default function HeroSection({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10"
+          className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-8 sm:mb-10"
         >
           {t("subtitle")}
         </motion.p>
@@ -102,7 +102,7 @@ export default function HeroSection({
         >
           <Link
             href="/recetas"
-            className="px-8 py-4 bg-terracotta text-white font-semibold rounded-full hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/25 text-lg hover:shadow-terracotta/40 hover:-translate-y-0.5"
+            className="px-6 py-3 sm:px-8 sm:py-4 bg-terracotta text-white font-semibold rounded-full hover:bg-terracotta-light transition-all shadow-xl shadow-terracotta/25 text-lg hover:shadow-terracotta/40 hover:-translate-y-0.5"
           >
             {t("cta")}
           </Link>
@@ -112,7 +112,7 @@ export default function HeroSection({
               href={`https://www.youtube.com/watch?v=${latestVideoId}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full hover:bg-white/20 transition-all group"
+              className="flex items-center gap-2 sm:gap-3 px-5 py-3 sm:px-6 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full hover:bg-white/20 transition-all group"
             >
               <div className="w-10 h-10 bg-chile-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-chile-red/30">
                 <Play className="w-4 h-4 text-white ml-0.5" fill="white" />

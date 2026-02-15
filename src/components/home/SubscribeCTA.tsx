@@ -11,12 +11,12 @@ export default function SubscribeCTA() {
     <section className="py-16 md:py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="relative bg-gradient-to-br from-chile-red via-terracotta to-terracotta-dark rounded-3xl p-10 md:p-14 text-center overflow-hidden">
+          <div className="relative bg-gradient-to-br from-chile-red via-terracotta to-terracotta-dark rounded-3xl p-6 sm:p-10 md:p-14 text-center overflow-hidden">
             {/* Decorative elements - more visible */}
             <div className="absolute top-0 right-0 w-60 h-60 bg-white/10 rounded-full -translate-y-1/3 translate-x-1/3" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full translate-y-1/3 -translate-x-1/3" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/10 rounded-full" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] border border-white/5 rounded-full" />
+            <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/10 rounded-full" />
+            <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] border border-white/5 rounded-full" />
 
             <div className="relative z-10">
               {/* Channel logo with animated pulse ring */}
@@ -43,7 +43,7 @@ export default function SubscribeCTA() {
                 href={SOCIAL_LINKS.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-white text-chile-red font-bold rounded-full hover:bg-cream hover:-translate-y-0.5 transition-all shadow-xl shadow-black/15"
+                className="inline-flex items-center gap-2.5 px-6 py-3 sm:px-8 sm:py-3.5 bg-white text-chile-red font-bold rounded-full hover:bg-cream hover:-translate-y-0.5 transition-all shadow-xl shadow-black/15"
               >
                 <Youtube className="w-5 h-5" />
                 YouTube

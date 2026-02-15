@@ -176,7 +176,7 @@ export default async function RecipePage({ params }: Props) {
           {/* Back link */}
           <Link
             href="/recetas"
-            className="inline-flex items-center gap-2 text-warm-gray hover:text-terracotta transition-colors mb-6 text-sm no-print"
+            className="inline-flex items-center gap-2 text-warm-gray hover:text-terracotta transition-colors mb-4 sm:mb-6 text-sm no-print"
           >
             <ArrowLeft className="w-4 h-4" />
             {t("viewAll")}
@@ -189,7 +189,7 @@ export default async function RecipePage({ params }: Props) {
 
           {/* Title + meta */}
           <ScrollReveal delay={0.1}>
-            <div className="mt-8 mb-6">
+            <div className="mt-6 mb-4 sm:mt-8 sm:mb-6">
               {recipe && (
                 <Badge
                   category={recipe.category}
